@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <title>Forms and Such</title>
+</head>
+
+<body>
+
+  <%- include('../pages/partials/header') %>
+  
+  <main>
+
+    <ul>
+      <li >
+        <%= meme.name %>
+        <img src="<%= meme.url %>">
+        <%= meme.width %>
+        <%= meme.height %>
+        <%= meme.box_count %>
+      </li>
+
+      <button id="edit">Update</button>
+
+      <span id="flex">
+        <form  method="post" action="/update-meme/<%= meme.id %>?_method=put">
+            <input type="hidden" name="name" value=" <%= meme.name %>" />
+            <input type="hidden" name="url" value=" <%= meme.url %>" />
+            <input type="hidden" name="width" value="  <%= meme.width %> " />
+            <input type="hidden" name="height" value="<%= meme.height %>" />
+            <input type="hidden" name="box_count" value="<%= meme.box_count %>" />
+            <button type="submit" >SELECT THIS MEME</button>
+          
+          <%- include('../pages/partials/dropdown') %>
+        
+        
+        
+        <button type="submit">Update</button>      
+      </form>
+    </span>
+    <form method="post" action="/delete-book/<%= book.id %>?_method=delete">
+      <button type="submit" id="delete">Delete</button>
+    </form>
+    
+    
+    
+  </ul>
+
+  </main>
+  
+  <%- include('../pages/partials/footer') %>
+
+
+  <%- include('../pages/partials/scripts') %>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <title>Meme Thingy</title>
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+    <form id="searchForm" method="get" action="/searches">
+
+      <input id="input1"  name="name" placeholder="Enter a concept">
+
+
+      <button type="submit">Search for funny memes</button>
+
+    </form>
+  </main>
+
+
+  <%- include('../partials/footer') %>
+</body>
+
+</html>

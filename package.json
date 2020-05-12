@@ -1,0 +1,31 @@
+{
+  "name": "meme-site",
+  "version": "1.0.0",
+  "description": "hilarious",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.3",
+    "pg": "^8.1.0",
+    "superagent": "^5.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omac092627/meme-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omac092627/meme-site/issues"
+  },
+  "homepage": "https://github.com/Omac092627/meme-site#readme"
+}
