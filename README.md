@@ -1,2 +1,1 @@
-# meme-maker
-App that makes memes
+# meme-site

@@ -1,0 +1,15 @@
+<main>
+    <% memes.forEach (meme => { %>
+    <section>
+        <%= meme.names %>
+        <img src="<%= meme.urls %>">
+         <%= meme.width %>
+         <%= meme.height %>
+        <%= meme.box_count %>
+
+        <input type="hidden" name="template_id" value=" <%= meme.template_id %>" />
+        <input type="hidden" name="username" value=" <%= meme.username %>" />
+        <input type="hidden" name="password" value="  <%= meme.password %> " />
+    </section>
+    <% }); %>
+</main>
