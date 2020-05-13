@@ -102,25 +102,24 @@ function captionMeme(request, response) {
   // let url = 'https://api.imgflip.com/caption_image'
 
   const queryStringParams = {
-    key: `${process.env.IMGFLIP_API_USERNAME}:${process.env.IMGFLIP_API_PASSWORD}`,
-    q: request,
+    username: process.env.IMGFLIP_API_USERNAME,
+    password: process.env.IMGFLIP_API_PASSWORD,
+    template_id: "112126428",
+    text0: request.body.text0,
+    text1: request.body.text1,
     format: 'json',
     limit: 1,
   }
 
-  let queryObject = {
-    q: `${request.body.name}, ${request.body.url}, ${request.body.text0}, ${request.body.text1}`,
-  };
-
   console.log(queryStringParams);
-  console.log(queryObject);
 
 
-  superagent.post('https://api.imgflip.com/caption_image').send()
-    // .query(queryStringParams)
-    .query(queryObject)
+  superagent.post('https://api.imgflip.com/caption_image')
+  .type('form')
+  .send(queryStringParams)
     .then(results => {
-      response.status(200).render('pages/onememe', { queryObject })
+      console.log(results.body);
+      response.status(200).render('pages/onememe');
     })
     .catch(error => {
       console.error(error.message);
@@ -137,8 +136,8 @@ function searchMemes(request, response) {
 
 function Memes(data) {
   this.name = data.name;
+  this.template_id = data.id;
   this.url = data.url;
-
   this.text0 = data.text0;
   this.text1 = data.text1;
   this.font = data.arial;
