@@ -27,28 +27,9 @@ app.get('/searches', resultsFromAPI);
 app.post('/save', saveThisMeme);
 app.post('/caption', captionMeme);
 // app.get('/onememe/:id', handleOneMeme);
-// app.put('/update-meme/:id', handleUpdate);
 
 
 
-// function handleUpdate(request, response){
-//     let SQL = 'UPDATE memes set name = $1, url= $2, width= $3, height = $4, box_count= $5 WHERE id = $6';
-//     let VALUES = [
-//       request.body.name,
-//       request.body.url,
-//       request.body.width,
-//       request.body.height,
-//       request.body.box_count,
-//       request.params.id,
-//     ];
-
-//     client.query(SQL, VALUES)
-//       .then(results => {
-//         response.status(200).redirect(`/onememe/${request.params.id}`)
-//       })
-
-
-//   }
 
 
 
@@ -74,18 +55,6 @@ function handleIndexPage(request, response) {
 
 
 
-// function handleOneBook( request, response) {
-//   const SQL = `SELECT * FROM memes WHERE id = $1`;
-//   const VALUES = [request.params.id];
-//   client.query(SQL, VALUES)
-//     .then( results => {
-//       response.status(200).render('pages/onememe', {memes:results.rows[0]});
-//     })
-//     .catch(error => {
-//       console.error(error.message);
-//     });
-
-// }
 
 
 function resultsFromAPI(request, response) {
