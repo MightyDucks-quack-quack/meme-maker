@@ -96,7 +96,8 @@ function captionMeme(request, response) {
     .send(queryStringParams)
     .then(results => {
       console.log(results.body);
-      response.status(200).render('pages/onememe');
+      let data = results.body.data.url;
+      response.status(200).render('pages/onememe', {data});
     })
     .catch(error => {
       console.error(error.message);

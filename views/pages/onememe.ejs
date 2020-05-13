@@ -17,19 +17,10 @@
 
     <ul>
       <li >
-        <%= data.template_id %>
-        <%= data.name %>
-        <img src="<%= data.url %>">
-        <%= data.text0 %>
-        <%= data.text1 %>
-        <%= data.font %>
+
+        <img src='<%= data %>'>
+  
       </li>
-      <form id="postForm" method="post" action="/caption">
-        <input id="input" type="text" name="text0" placeholder="top text caption meme"><br>
-        <input id="input" type="text" name="text1" placeholder="bottom text caption meme"><br>
-        <button id="butt2" name="captionSearch" type="submit"> Caption a Meme</button>
-        
-      </form>
 
   </ul>
 
