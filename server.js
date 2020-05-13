@@ -70,29 +70,6 @@ function resultsFromAPI(request, response) {
 };
 
 
-function saveThisMeme (request, response) {
-  // console.log('Book to be added: ', request.body);
-  let SQL = `
-    INSERT INTO memes (name, url, text0, text1)
-    VALUES($1, $2, $3, $4, $5)
-  `;
-
-let VALUES = [
-  request.body.name,
-  request.body.url,
-  request.body.text0,
-  request.body.text1,
-];
-
-
-client.query(SQL, VALUES)
-  .then( results => {
-    response.status(200).redirect('pages/onememe');
-  })
-  .catch( error => {
-    console.error( error.message );
-  });
-}
 
 
 // }
@@ -113,20 +90,43 @@ function captionMeme(request, response) {
 
   console.log(queryStringParams);
 
-
+  
   superagent.post('https://api.imgflip.com/caption_image')
   .type('form')
   .send(queryStringParams)
-    .then(results => {
-      console.log(results.body);
-      let data = results.body.data.url;
-      response.status(200).render('pages/onememe', {data});
-    })
-    .catch(error => {
-      console.error(error.message);
-    });
+  .then(results => {
+    console.log(results.body);
+    let data = results.body.data.url;
+    response.status(200).render('pages/onememe', {data});
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
 }
 
+function saveThisMeme (request, response) {
+  // console.log('Book to be added: ', request.body);
+  let SQL = `
+    INSERT INTO memes (name, url, text0, text1)
+    VALUES($1, $2, $3, $4)
+  `;
+
+let VALUES = [
+  request.body.name,
+  request.body.url,
+  request.body.text0,
+  request.body.text1,
+];
+
+client.query(SQL, VALUES)
+  .then( results => {
+    console.log(VALUES)
+    response.status(200).redirect('/');
+  })
+  .catch( error => {
+    console.error( error.message );
+  });
+}
 
 
 function searchMemes(request, response) {
@@ -143,6 +143,17 @@ function Memes(data) {
   this.text1 = data.text1;
   this.font = data.arial;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

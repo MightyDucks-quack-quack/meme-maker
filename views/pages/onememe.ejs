@@ -15,14 +15,17 @@
 
   <main>
 
-    <ul>
+    <form id="saveForm" method="post" action="/save">
+
       <li >
 
         <img src='<%= data %>'>
   
       </li>
+      <input type="hidden" name="data" value="<%=data%>">
+      <button  id="butt" type="submit">Save This Meme</button>
+</form>
 
-  </ul>
 
   </main>
 
