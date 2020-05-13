@@ -15,6 +15,7 @@
   <main>
 
     <% meme.forEach (data => { %>
+<<<<<<< HEAD
 
     <form id="postForm" method="post" action="/save">
       <section>
@@ -29,6 +30,22 @@
         </li>
       </section>
     </form>
+=======
+    <section>
+      <li>
+        <%= data.template_id %>
+        <%= data.name %>
+        <img src='<%= data.url%>'>
+        <%= data.width%>
+        <%= data.height%>
+        <%= data.box_count %>
+      </li>
+      <form method="post" action="/add">
+        <button type="submit"></button>
+      </form>
+
+    </section>
+>>>>>>> 763533695f5d48733b30e2c818019b8f99745a53
     <% }); %>
 
   </main>

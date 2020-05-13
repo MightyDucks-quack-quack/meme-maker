@@ -34,11 +34,11 @@ app.post('/caption', captionMeme);
 // function handleUpdate(request, response){
 //     let SQL = 'UPDATE memes set name = $1, url= $2, width= $3, height = $4, box_count= $5 WHERE id = $6';
 //     let VALUES = [
-//       request.body.name, 
-//       request.body.url, 
-//       request.body.width, 
-//       request.body.height, 
-//       request.body.box_count, 
+//       request.body.name,
+//       request.body.url,
+//       request.body.width,
+//       request.body.height,
+//       request.body.box_count,
 //       request.params.id,
 //     ];
 
@@ -126,6 +126,7 @@ client.query(SQL, VALUES)
 }
 
 
+// }
 
 function captionMeme(request, response) {
   // console.log('Meme to be added: ', request.body);
