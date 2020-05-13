@@ -17,6 +17,10 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    background-image: url(https://img5.goodfon.com/wallpaper/nbig/1/ce/wallpaper-background-4k-ultra-hd-blur-bokeh-rubber-duck-duck.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
  
 } 
  body{
