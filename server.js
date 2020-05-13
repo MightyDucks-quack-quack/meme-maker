@@ -15,16 +15,17 @@ app.use(cors());
 
 //brings in EJS
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static('./public'));
 
 
 
-app.get ('/', handleIndexPage);
+app.get('/', handleIndexPage);
 app.get('/new', searchMemes);
 app.get('/searches', resultsFromAPI);
-app.post('/add', addNewMeme);
+app.post('/save', saveThisMeme);
+app.post('/caption', captionMeme);
 // app.get('/onememe/:id', handleOneMeme);
 // app.put('/update-meme/:id', handleUpdate);
 
@@ -40,138 +41,168 @@ app.post('/add', addNewMeme);
 //       request.body.box_count, 
 //       request.params.id,
 //     ];
-    
+
 //     client.query(SQL, VALUES)
 //       .then(results => {
 //         response.status(200).redirect(`/onememe/${request.params.id}`)
 //       })
-  
-  
+
+
 //   }
-  
-
-
-function handleIndexPage (request, response)  {
-    response.status(200).render('pages/index');
-  }
 
 
 
-
-  // function handleOneMeme( request, response) {
-  //   const SQL = `SELECT * FROM memes WHERE id = $1`;
-  //   const VALUES = [request.params.id];
-  //   client.query(SQL, VALUES)
-  //     .then( results => {
-  //       response.status(200).render('pages/onememe', {memes:results.rows[0]});
-  //     })
-  //     .catch(error => {
-  //       console.error(error.message);
-  //     });
-    
-  // }
+function handleIndexPage(request, response) {
+  response.status(200).render('pages/index');
+}
 
 
 
-  function addNewMeme (request, response) {
-    // console.log('Book to be added: ', request.body);
-    let SQL = `
-      INSERT INTO memes (name, url, width, height, box_count)
-      VALUES($1, $2, $3, $4, $5)
-    `;
-  
-  let VALUES = [
-    request.body.name,
-    request.body.url,
-    request.body.width,
-    request.body.height,
-    request.body.box_count,
-  ];
-  
-  if ( ! (request.body.name || request.body.url || request.body.width || request.body.height || request.body.box_count) ) {
-    throw new Error('invalid input');
-  }
-  
-  client.query(SQL, VALUES)
-    .then(data => {
-      response.status(200).redirect('/');
-    })
-    .catch( error => {
-      console.error( error.message );
-    });
-  }
+
+// function handleOneMeme( request, response) {
+//   const SQL = `SELECT * FROM memes WHERE id = $1`;
+//   const VALUES = [request.params.id];
+//   client.query(SQL, VALUES)
+//     .then( results => {
+//       response.status(200).render('pages/onememe', {memes:results.rows[0]});
+//     })
+//     .catch(error => {
+//       console.error(error.message);
+//     });
+
+// }
 
 
 
-  function searchMemes(request, response) {
-    response.status(200).render('pages/searches/new')
-  };
-  
-  
-  // function handleOneBook( request, response) {
-  //   const SQL = `SELECT * FROM memes WHERE id = $1`;
-  //   const VALUES = [request.params.id];
-  //   client.query(SQL, VALUES)
-  //     .then( results => {
-  //       response.status(200).render('pages/onememe', {memes:results.rows[0]});
-  //     })
-  //     .catch(error => {
-  //       console.error(error.message);
-  //     });
-    
-  // }
+// function handleOneBook( request, response) {
+//   const SQL = `SELECT * FROM memes WHERE id = $1`;
+//   const VALUES = [request.params.id];
+//   client.query(SQL, VALUES)
+//     .then( results => {
+//       response.status(200).render('pages/onememe', {memes:results.rows[0]});
+//     })
+//     .catch(error => {
+//       console.error(error.message);
+//     });
+
+// }
 
 
-  function resultsFromAPI (request, response) {
-    let url = 'http://api.imgflip.com/get_memes';
-    
+function resultsFromAPI(request, response) {
+  let url = 'http://api.imgflip.com/get_memes';
 
-    superagent.get(url)
+
+  superagent.get(url)
     .then(results => {
       console.log(results);
       let meme = results.body.data.memes.map(memes => new Memes(memes));
-      response.status(200).render('pages/searches/show', {meme:meme});
+      response.status(200).render('pages/searches/show', { meme: meme });
     });
+};
+
+
+function saveThisMeme (request, response) {
+  // console.log('Book to be added: ', request.body);
+  let SQL = `
+    INSERT INTO memes (name, url, text0, text1)
+    VALUES($1, $2, $3, $4, $5)
+  `;
+
+let VALUES = [
+  request.body.name,
+  request.body.url,
+  request.body.text0,
+  request.body.text1,
+];
+
+
+client.query(SQL, VALUES)
+  .then( results => {
+    response.status(200).redirect('pages/onememe');
+  })
+  .catch( error => {
+    console.error( error.message );
+  });
+}
+
+
+
+function captionMeme(request, response) {
+  // console.log('Meme to be added: ', request.body);
+  // let url = 'https://api.imgflip.com/caption_image'
+
+  const queryStringParams = {
+    key: `${process.env.IMGFLIP_API_USERNAME}:${process.env.IMGFLIP_API_PASSWORD}`,
+    q: request,
+    format: 'json',
+    limit: 1,
+  }
+
+  let queryObject = {
+    q: `${request.body.name}, ${request.body.url}, ${request.body.text0}, ${request.body.text1}`,
   };
 
-
-  function Memes(data) {
-    this.name = data.name;
-    this.url = data.url;
-    this.width = data.width;
-    this.height = data.height;
-    this.box_count = data.box_count;
-  }
+  console.log(queryStringParams);
+  console.log(queryObject);
 
 
-
-  // This will force an error
-app.get('/badthing', (request,response) => {
-    throw new Error('bad request???');
-  });
-  
-  // 404 Handler
-  app.use('*', (request, response) => {
-    response.status(404).send(`Can't Find ${request.path}`);
-  });
-  
-  // Error Handler
-  app.use( (err,request,response,next) => {
-    console.error(err);
-    response.status(500).render('pages/error', {err})
-  });
-  
-  // Startup
-  function startServer() {
-    app.listen( PORT, () => console.log(`Server running on ${PORT}`));
-  }
-  
-  //connecting the client to the databse//
-  client.connect()
-    .then( () => {
-      startServer(PORT);
+  superagent.post('https://api.imgflip.com/caption_image').send()
+    // .query(queryStringParams)
+    .query(queryObject)
+    .then(results => {
+      response.status(200).render('pages/onememe', { queryObject })
     })
-    .catch(err => console.error(err));
+    .catch(error => {
+      console.error(error.message);
+    });
+}
+
+
+
+function searchMemes(request, response) {
+  response.status(200).render('pages/searches/new')
+};
+
+
+
+function Memes(data) {
+  this.name = data.name;
+  this.url = data.url;
+
+  this.text0 = data.text0;
+  this.text1 = data.text1;
+  this.font = data.arial;
+}
+
+
+
+// This will force an error
+app.get('/badthing', (request, response) => {
+  throw new Error('bad request???');
+});
+
+// 404 Handler
+app.use('*', (request, response) => {
+  response.status(404).send(`Can't Find ${request.path}`);
+});
+
+// Error Handler
+app.use((err, request, response, next) => {
+  console.error(err);
+  response.status(500).render('pages/error', { err })
+});
+
+// Startup
+function startServer() {
+  app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+}
+
+//connecting the client to the databse//
+client.connect()
+  .then(() => {
+    startServer(PORT);
+  })
+  .catch(err => console.error(err));
 
 
 //     superagent.post(urlGoesHere).send( {} ) … and that object is an object where you’d have the user/pass props
