@@ -12,10 +12,28 @@
 
 <body>
     <main>
+        <% memes.forEach (data => { %>
+        <section>
+            <li>
+                <div class="container">
+                    <img src='<%= data.url%>' alt="Avatar" class="image"><br>
+                    <div class="overlay">
+                        <%= data.template_id%>
+                        <div class="text"> <%= data.template_id %> <%= data.name %><br></div>
+                    </div>
+                </div>
+            </li>
+            <form method="post" action="/delete/<%= data.id %>?_method=delete">
+                <button type="submit"> Delete</button>
+            </form>
+        </section>
+
+        <% }); %>
         <img src="<%= memes.url %>" alt="meme">
     </main>
 
     <%- include('../pages/partials/footer') %>
+
 </body>
 
 </html>

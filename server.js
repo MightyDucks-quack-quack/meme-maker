@@ -27,19 +27,22 @@ app.get('/searches', resultsFromAPI);
 app.post('/save', saveThisMeme);
 app.post('/caption', captionMeme);
 app.get('/fav', handleFav);
+
+app.delete('/delete/:id', deleteMeme);
+
 app.get('/aboutus', aboutUs);
+
 // app.get('/onememe/:id', handleOneMeme);
 
 
 
 function handleFav(request, response) {
-  const SQL = `SELECT * FROM memes`
+  const SQL = `SELECT * FROM memes`;
 
   client.query(SQL)
     .then(results => {
-      console.log(results.rows[0])
-      response.status(200).render('pages/save', { memes: results.rows[4] })
-    })
+      response.status(200).render('pages/save', { memes: results.rows });
+    });
 }
 
 function handleIndexPage(request, response) {
@@ -56,36 +59,34 @@ function resultsFromAPI(request, response) {
 
   superagent.get(url)
     .then(results => {
-      console.log(results);
       let meme = results.body.data.memes.map(memes => new Memes(memes));
       response.status(200).render('pages/searches/show', { meme: meme });
     });
-};
+}
 
 function captionMeme(request, response) {
   // console.log('Meme to be added: ', request.body);
-  // let url = 'https://api.imgflip.com/caption_image'
+  // let url = 'https://api.imgflip.com/caption_image';
 
   const queryStringParams = {
     username: process.env.IMGFLIP_API_USERNAME,
     password: process.env.IMGFLIP_API_PASSWORD,
-    template_id: "112126428",
+    template_id: '112126428',
     text0: request.body.text0,
     text1: request.body.text1,
     format: 'json',
     limit: 1,
-  }
+  };
 
-  console.log(queryStringParams);
 
 
   superagent.post('https://api.imgflip.com/caption_image')
     .type('form')
     .send(queryStringParams)
     .then(results => {
-      console.log(results.body)
+      console.log(results.body);
       let data = results.body.data.url;
-      response.status(200).render('pages/onememe', { data });
+      response.status(200).render('pages/save', { data });
     })
     .catch(error => {
       console.error(error.message);
@@ -108,7 +109,6 @@ function saveThisMeme(request, response) {
 
   client.query(SQL, VALUES)
     .then(results => {
-      console.log(VALUES)
       response.status(200).redirect('pages/save');
     })
     .catch(error => {
@@ -118,8 +118,8 @@ function saveThisMeme(request, response) {
 
 
 function searchMemes(request, response) {
-  response.status(200).render('pages/searches/new')
-};
+  response.status(200).render('pages/searches/new');
+}
 
 
 
@@ -132,18 +132,15 @@ function Memes(data) {
   this.font = data.arial;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+function deleteMeme(request, response){
+  let id = request.params.id;
+  let SQL = `DELETE FROM memes WHERE id = $1`;
+  let VALUES =  [id];
+  client.query(SQL, VALUES)
+    .then(results => {
+      response.status(200).redirect('/fav');
+    });
+}
 
 // This will force an error
 app.get('/badthing', (request, response) => {
@@ -158,7 +155,7 @@ app.use('*', (request, response) => {
 // Error Handler
 app.use((err, request, response, next) => {
   console.error(err);
-  response.status(500).render('pages/error', { err })
+  response.status(500).render('pages/error', { err });
 });
 
 // Startup
