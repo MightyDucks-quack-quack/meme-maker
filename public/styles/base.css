@@ -15,6 +15,12 @@
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: url(https://img5.goodfon.com/wallpaper/nbig/1/ce/wallpaper-background-4k-ultra-hd-blur-bokeh-rubber-duck-duck.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
  
 } 
  body{
@@ -23,12 +29,16 @@
     justify-content: center;
     background-color: #cdc6ae;
 }
+.container{
+    padding:auto;
+    margin:auto;
+
+}
 a{
     color:#38686a;
 }
 img{
-    padding:auto;
-    margin:auto;
+
     height:80%;
     width:60%;
 }
@@ -37,27 +47,46 @@ li{
     text-align: center;
     margin: auto;
     padding:auto;
-    padding-top:50px;
-    color:#38686a;
+    color:white;
+    background-color: black;
 }
 section{
     justify-content: center;
+    text-align: center;
     padding: auto;
+    padding-top: 20px;
     margin:auto;
 }
-#input1{
+
+
+#butt1{
+    width:300px;
+    height:50px;
+    background-color: black;
+    color: white;
+}
+
+
+#input{
     width:300px;
     height:60px;
     font-size: large;
     text-align: center;
     background-color: #a3b4a2;
     color:black;
+    margin: auto;
+    display: flex;
+    margin-top: 5%;
 }
-button{
+
+#butt2{
     width:300px;
     height:50px;
     background-color: black;
     color: white;
+    margin: auto;
+    display: flex;
+
 }
 
 #footer{
@@ -77,3 +106,44 @@ button{
     font-size: 3rem;
     background-color: #a3b4a2;
 }
+
+/* Container needed to position the overlay. Adjust the width as needed */
+/*   */
+  
+  /* Make the image to responsive */
+  /* .image {
+    width: 60%;
+    height: 80%;
+    padding: auto;
+    margin: auto;
+  }
+   */
+  /* The overlay effect (full height and width) - lays on top of the container and over the image */
+  /* .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: .3s ease;
+  } */
+  
+  /* When you mouse over the container, the overlay text will "zoom" in display */
+  /* .container:hover .overlay {
+    transform: scale(1);
+  } */
+  
+  /* Some text inside the overlay, which is positioned in the middle vertically and horizontally */
+  /* .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  } */

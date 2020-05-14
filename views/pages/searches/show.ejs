@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,47 @@
   <link rel="stylesheet" href="/styles/style.css">
   <title>Document</title>
 </head>
+
 <body>
   <%- include('../partials/header') %>
+  <form id="searchFormShow" method="get" action="/searches">
 
+    <input id="input1"  name="name" placeholder="Enter a concept">
+
+
+    <button id="butt1" type="submit">Search All Memes</button>
+
+  </form>
   <main>
 
-    <% meme.forEach (data => { %> 
+    <% meme.forEach (data => { %>
 
-    <section>
-      <li>
-        <%= data.template_id %>
-        <%= data.name %><br>
-       <img src= '<%= data.url%>'><br>
-        <%= data.width%>
-        <%= data.height%>
-        <%= data.box_count %>
-      </li>
+    <form id="postForm" method="post" action="/save">
+      <section>
+        <li>
+          <div class="container">
+            <img src='<%= data.url%>' alt="Avatar" class="image"><br>
+            <div class="overlay">
+              <%= data.template_id%>
+              <div class="text"> <%= data.template_id %> <%= data.name %><br></div>
+            </div>
+          </div>
+          <button id="butt1" type="submit">Caption This Meme</button>
+        </li>
 
+      </section>
+    </form>
+    <form id="postForm" method="post" action="/caption" >
+      <input id="input" type="hidden" name="text0" placeholder="top text caption meme"><br>
+      <input id="input" type="hidden" name="text1" placeholder="bottom text caption meme"><br>
+      
+    </form>
 
-    </section>
     <% }); %>
 
-</main>
-<%- include('../partials/footer') %>
+  </main>
+  <%- include('../partials/footer') %>
 
 </body>
+
 </html>
