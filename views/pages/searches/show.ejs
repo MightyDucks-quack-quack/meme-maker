@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
   <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/style.css">
   <title>Document</title>
@@ -23,7 +24,7 @@
 
     <% meme.forEach (data => { %>
 
-    <form id="postForm" method="post" action="/save">
+    
       <section>
         <li>
           <div class="container">
@@ -33,21 +34,20 @@
               <div class="text"> <%= data.template_id %> <%= data.name %><br></div>
             </div>
           </div>
-          <button id="butt1" type="submit">Caption This Meme</button>
+          <button class= 'button' type="submit">Caption This Meme</button>
         </li>
-
       </section>
-    </form>
-    <form id="postForm" method="post" action="/caption" >
-      <input id="input" type="hidden" name="text0" placeholder="top text caption meme"><br>
-      <input id="input" type="hidden" name="text1" placeholder="bottom text caption meme"><br>
       
+    <form class="<%= data.template_id%>" method="post" action="/caption" >
+      <input id="input" type="text" name="text0" placeholder="top text caption meme"><br>
+      <input id="input" type="text" name="text1" placeholder="bottom text caption meme"><br>
+      <button id="postCap" type="submit">Post Caption</button>
     </form>
 
     <% }); %>
 
   </main>
-  <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
 
 </body>
 
