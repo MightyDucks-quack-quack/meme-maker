@@ -26,36 +26,24 @@ app.get('/new', searchMemes);
 app.get('/searches', resultsFromAPI);
 app.post('/save', saveThisMeme);
 app.post('/caption', captionMeme);
+app.get('/fav', handleFav)
 // app.get('/onememe/:id', handleOneMeme);
 
 
 
+function handleFav(request, response) {
+  const SQL = `SELECT * FROM memes`
 
-
+  client.query(SQL)
+    .then(results => {
+      console.log(results.rows[0])
+      response.status(200).render('pages/save', { memes: results.rows[4] })
+    })
+}
 
 function handleIndexPage(request, response) {
   response.status(200).render('pages/index');
 }
-
-
-
-
-// function handleOneMeme( request, response) {
-//   const SQL = `SELECT * FROM memes WHERE id = $1`;
-//   const VALUES = [request.params.id];
-//   client.query(SQL, VALUES)
-//     .then( results => {
-//       response.status(200).render('pages/onememe', {memes:results.rows[0]});
-//     })
-//     .catch(error => {
-//       console.error(error.message);
-//     });
-
-// }
-
-
-
-
 
 function resultsFromAPI(request, response) {
   let url = 'http://api.imgflip.com/get_memes';
@@ -68,34 +56,6 @@ function resultsFromAPI(request, response) {
       response.status(200).render('pages/searches/show', { meme: meme });
     });
 };
-
-
-function saveThisMeme (request, response) {
-  // console.log('Book to be added: ', request.body);
-  let SQL = `
-    INSERT INTO memes (name, url, text0, text1)
-    VALUES($1, $2, $3, $4, $5)
-  `;
-
-let VALUES = [
-  request.body.name,
-  request.body.url,
-  request.body.text0,
-  request.body.text1,
-];
-
-
-client.query(SQL, VALUES)
-  .then( results => {
-    response.status(200).redirect('pages/onememe');
-  })
-  .catch( error => {
-    console.error( error.message );
-  });
-}
-
-
-// }
 
 function captionMeme(request, response) {
   // console.log('Meme to be added: ', request.body);
@@ -115,18 +75,41 @@ function captionMeme(request, response) {
 
 
   superagent.post('https://api.imgflip.com/caption_image')
-  .type('form')
-  .send(queryStringParams)
+    .type('form')
+    .send(queryStringParams)
     .then(results => {
-      console.log(results.body);
+      console.log(results.body)
       let data = results.body.data.url;
-      response.status(200).render('pages/onememe', {data});
+      response.status(200).render('pages/onememe', { data });
     })
     .catch(error => {
       console.error(error.message);
     });
 }
 
+function saveThisMeme(request, response) {
+  // console.log('Book to be added: ', request.body);
+  let SQL = `
+    INSERT INTO memes (name, url, text0, text1)
+    VALUES($1, $2, $3, $4)
+  `;
+
+  let VALUES = [
+    request.body.name,
+    request.body.data,
+    request.body.text0,
+    request.body.text1,
+  ];
+
+  client.query(SQL, VALUES)
+    .then(results => {
+      console.log(VALUES)
+      response.status(200).redirect('pages/save');
+    })
+    .catch(error => {
+      console.error(error.message);
+    });
+}
 
 
 function searchMemes(request, response) {
@@ -143,6 +126,17 @@ function Memes(data) {
   this.text1 = data.text1;
   this.font = data.arial;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
