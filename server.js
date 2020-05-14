@@ -27,7 +27,11 @@ app.get('/searches', resultsFromAPI);
 app.post('/save', saveThisMeme);
 app.post('/caption', captionMeme);
 app.get('/fav', handleFav);
+
 app.delete('/delete/:id', deleteMeme);
+
+app.get('/aboutus', aboutUs);
+
 // app.get('/onememe/:id', handleOneMeme);
 
 
@@ -43,6 +47,10 @@ function handleFav(request, response) {
 
 function handleIndexPage(request, response) {
   response.status(200).render('pages/index');
+}
+
+function aboutUs(request, response){
+  response.status(200).render('pages/aboutus')
 }
 
 function resultsFromAPI(request, response) {

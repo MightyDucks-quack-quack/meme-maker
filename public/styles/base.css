@@ -65,6 +65,16 @@ section{
     background-color: black;
     color: white;
 }
+#caption{
+    width:300px;
+    height:50px;
+    background-color: black;
+    color: white;
+}
+#captionO{
+    display:none;
+}
+
 
 
 #input{
@@ -77,6 +87,12 @@ section{
     margin: auto;
     display: flex;
     margin-top: 5%;
+}
+.postFormH{
+    display: none;
+}
+.postFormS{
+    display:inline;
 }
 
 #butt2{
@@ -106,6 +122,39 @@ section{
     font-size: 3rem;
     background-color: #a3b4a2;
 }
+
+
+#aboutFlex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#aboutFlex1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+}
+
+.aboutUs{
+    display: flex;
+    flex: 1;
+    max-width: 20%;
+    padding: 2rem;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.aboutUs1{
+    padding: 2rem;
+    margin: auto;
+    width: 20%;
+
+}
+
+
+
 
 /* Container needed to position the overlay. Adjust the width as needed */
 /*   */
