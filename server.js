@@ -49,7 +49,7 @@ function handleIndexPage(request, response) {
   response.status(200).render('pages/index');
 }
 
-function aboutUs(request, response){
+function aboutUs(request, response) {
   response.status(200).render('pages/aboutus')
 }
 
@@ -59,11 +59,15 @@ function resultsFromAPI(request, response) {
 
   superagent.get(url)
     .then(results => {
-      let meme = results.body.data.memes.map(memes => new Memes(memes));
-      response.status(200).render('pages/searches/show', { meme: meme });
+      let input = request.query.name
+      let meme = results.body.data.memes
+      let r = new RegExp(input, 'ig')
+      let filt = meme.filter(v => r.test(v.name))
+      let selection = filt.map(memes => new Memes(memes));
+      response.status(200).render('pages/searches/show', { meme: selection });
     });
 }
-
+// v.name.includes(input) ? v : null
 function captionMeme(request, response) {
   // console.log('Meme to be added: ', request.body);
   // let url = 'https://api.imgflip.com/caption_image';
@@ -71,22 +75,21 @@ function captionMeme(request, response) {
   const queryStringParams = {
     username: process.env.IMGFLIP_API_USERNAME,
     password: process.env.IMGFLIP_API_PASSWORD,
-    template_id: '112126428',
+    template_id: request.body.id,
     text0: request.body.text0,
     text1: request.body.text1,
     format: 'json',
     limit: 1,
   };
-
+  console.log(queryStringParams)
 
 
   superagent.post('https://api.imgflip.com/caption_image')
     .type('form')
     .send(queryStringParams)
     .then(results => {
-      console.log(results.body);
       let data = results.body.data.url;
-      response.status(200).render('pages/save', { data });
+      response.status(200).render('pages/onememe', { data });
     })
     .catch(error => {
       console.error(error.message);
@@ -109,7 +112,7 @@ function saveThisMeme(request, response) {
 
   client.query(SQL, VALUES)
     .then(results => {
-      response.status(200).redirect('pages/save');
+      response.status(200).redirect('/fav');
     })
     .catch(error => {
       console.error(error.message);
@@ -132,10 +135,10 @@ function Memes(data) {
   this.font = data.arial;
 }
 
-function deleteMeme(request, response){
+function deleteMeme(request, response) {
   let id = request.params.id;
   let SQL = `DELETE FROM memes WHERE id = $1`;
-  let VALUES =  [id];
+  let VALUES = [id];
   client.query(SQL, VALUES)
     .then(results => {
       response.status(200).redirect('/fav');

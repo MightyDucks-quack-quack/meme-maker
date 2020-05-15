@@ -14,7 +14,7 @@
   <%- include('../partials/header') %>
   <form id="searchFormShow" method="get" action="/searches">
 
-    <input id="input1"  name="name" placeholder="Enter a concept">
+    <input id="input1" name="name" placeholder="Enter a concept">
 
 
     <button id="butt1" type="submit">Search All Memes</button>
@@ -35,11 +35,13 @@
               <div class="text"> <%= data.template_id %> <%= data.name %><br></div>
             </div>
           </div>
-          <button class= 'button' type="submit">Caption This Meme</button>
+          <button class='button' type="submit">Caption This Meme</button>
         </li>
       </section>
     </form>
-    <form class="<%= data.template_id%>" method="post" action="/caption" >
+    <form class="<%= data.template_id%>" method="post" action="/caption">
+
+      <input id="input" type="hidden" name="id" value="<%= data.template_id %>"><br>
       <input id="input" type="text" name="text0" placeholder="top text caption meme"><br>
       <input id="input" type="text" name="text1" placeholder="bottom text caption meme"><br>
       <button id="postCap" type="submit">Post Caption</button>
@@ -49,7 +51,7 @@
     <% }); %>
 
   </main>
-    <%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>
 
 </body>
 
