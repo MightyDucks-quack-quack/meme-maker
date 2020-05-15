@@ -1,4 +1,7 @@
 'use strict'
+
+
+
 // $(document).ready(function() {
 //     $("#butt1").click(function() {
 //       console.log('alive')
@@ -12,10 +15,17 @@
 //   console.log('alive');
 //   $('#postForm').fadeIn();
 // };
-$(".button").click(function () {
-  let clicked = $(this).attr('class');
+// $(".button").click(function () {
+//   let clicked = $(this).attr('class');
 
-  console.log(clicked, 'clicked');
-  $('.112126428').css("display", "block");
+//   console.log(clicked, 'clicked');
+//   $('.112126428').css("display", "block");
 
-});
+// });
+
+$('.open').on('click', handleClick)
+
+function handleClick(event) {
+  let v = this.name
+  $(`form[name="${v}"]`).toggle()
+}

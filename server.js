@@ -67,7 +67,7 @@ function resultsFromAPI(request, response) {
       response.status(200).render('pages/searches/show', { meme: selection });
     });
 }
-// v.name.includes(input) ? v : null
+
 function captionMeme(request, response) {
   // console.log('Meme to be added: ', request.body);
   // let url = 'https://api.imgflip.com/caption_image';
@@ -119,12 +119,9 @@ function saveThisMeme(request, response) {
     });
 }
 
-
 function searchMemes(request, response) {
   response.status(200).render('pages/searches/new');
 }
-
-
 
 function Memes(data) {
   this.name = data.name;

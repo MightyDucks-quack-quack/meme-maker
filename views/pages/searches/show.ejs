@@ -20,27 +20,24 @@
     <button id="butt1" type="submit">Search All Memes</button>
 
   </form>
+
   <main>
 
     <% meme.forEach (data => { %>
 
-
-    <form id="postForm" method="post" action="/caption">
-      <section>
-        <li>
-          <div class="container">
-            <img src='<%= data.url%>' alt="Avatar" class="image"><br>
-            <div class="overlay">
-              <%= data.template_id%>
-              <div class="text"> <%= data.template_id %> <%= data.name %><br></div>
-            </div>
+    <section>
+      <li>
+        <div class="container">
+          <img src='<%= data.url%>' alt="Avatar" class="image"><br>
+          <div class="overlay">
+            <%= data.template_id%>
+            <div class="text"> <%= data.template_id %> <%= data.name %><br></div>
           </div>
-          <button class='button' type="submit">Caption This Meme</button>
-        </li>
-      </section>
-    </form>
-    <form class="<%= data.template_id%>" method="post" action="/caption">
-
+        </div>
+        <button class='open' name="<%= data.template_id %>" type="submit">Caption This Meme</button>
+      </li>
+    </section>
+    <form id="expand" name="<%= data.template_id %>" method="post" action="/caption">
       <input id="input" type="hidden" name="id" value="<%= data.template_id %>"><br>
       <input id="input" type="text" name="text0" placeholder="top text caption meme"><br>
       <input id="input" type="text" name="text1" placeholder="bottom text caption meme"><br>

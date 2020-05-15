@@ -88,7 +88,7 @@ section{
     display: flex;
     margin-top: 5%;
 }
-.postFormH{
+#expand{
     display: none;
 }
 .postFormS{
