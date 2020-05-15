@@ -36,6 +36,7 @@
 }
 a{
     color:#38686a;
+    padding:5px;
 }
 img{
 
@@ -88,7 +89,7 @@ section{
     display: flex;
     margin-top: 5%;
 }
-.postFormH{
+.capForm{
     display: none;
 }
 .postFormS{
@@ -104,6 +105,20 @@ section{
     display: flex;
 
 }
+.aboutUs1{
+    background-color: #a3b4a2;
+    text-align: center;
+    font-size: large;
+    height:150px;
+    padding-top:3rem;
+}
+
+#aboutFlex{
+    background-color: #38686a;
+    padding:10px;
+    margin-top:48px;
+}    
+
 
 #footer{
     margin: auto;

@@ -12,10 +12,14 @@
 //   console.log('alive');
 //   $('#postForm').fadeIn();
 // };
+
+
 $(".button").click(function () {
-  let clicked = $(this).attr('class');
-
-  console.log(clicked, 'clicked');
-  $('.112126428').css("display", "block");
-
+   $('.capForm').show();
+  let capForm = $(capForm).html();
+  let caption = $(this.capForm);
+  if( caption =! $('.container')){
+    capForm.hide();
+    $('.capForm').show();
+  }
 });
