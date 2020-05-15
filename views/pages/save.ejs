@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/style.css">
     <title>Meme Thingy</title>
 </head>
+<%- include('../pages/partials/header') %>
+
 <body>
-<<<<<<< Updated upstream
-=======
     <main>
         <% memes.forEach (data => { %>
         <section>
@@ -21,7 +24,9 @@
                 </div>
             </li>
             <form method="post" action="/delete/<%= data.id %>?_method=delete">
+
                 <button type="submit"> Delete </button>
+
             </form>
         </section>
 
@@ -30,9 +35,8 @@
     </main>
 
     <%- include('../pages/partials/footer') %>
->>>>>>> Stashed changes
 
-    
-    
+
 </body>
+
 </html>
