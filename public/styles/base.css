@@ -3,7 +3,10 @@
     font-family: fantasy;
 }
 
-
+nav{
+    margin-bottom: 10em;
+    position: relative;
+}
 
 
 .links {
@@ -12,7 +15,7 @@
 }
 
  header{
-    margin: auto;
+    margin-bottom: 1em;
     padding:auto;
     height:50px;
     width:100%;
