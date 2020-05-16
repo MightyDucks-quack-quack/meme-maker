@@ -7,13 +7,14 @@
     <%- include('../pages/partials/header') %>
     <main>
         <% memes.forEach (data => { %>
-        <section>
+        <section class="container">
             <li>
-                <img src='<%= data.url%>' alt="Avatar" class="image"><br>
+                <img value="og:image" src='<%= data.url%>' alt="Avatar" class="image">
             </li>
             <form method="post" action="/delete/<%= data.id %>?_method=delete">
                 <button type="submit"> Delete </button>
             </form>
+
         </section>
 
         <% }); %>
