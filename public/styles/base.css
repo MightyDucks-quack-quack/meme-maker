@@ -6,7 +6,6 @@
 .links {
     display: flex;
     flex-flow: row;
-    margin: 1rem;
 }
 
  header{
@@ -168,7 +167,6 @@ section{
     padding: 2rem;
     margin: auto;
     width: 20%;
-
 }
 
 

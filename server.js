@@ -71,8 +71,23 @@ function captionMeme(request, response) {
     username: process.env.IMGFLIP_API_USERNAME,
     password: process.env.IMGFLIP_API_PASSWORD,
     template_id: request.body.id,
-    text0: request.body.text0,
-    text1: request.body.text1,
+    boxes: [
+      {
+        "text": request.body.text0,
+      },
+      {
+        "text": request.body.text1,
+      },
+      {
+        "text": request.body.text2,
+      },
+      {
+        "text": request.body.text3,
+      },
+      {
+        "text": request.body.text4,
+      },
+    ],
     format: 'json',
     limit: 1,
   };
@@ -114,10 +129,6 @@ function saveThisMeme(request, response) {
     });
 }
 
-function searchMemes(request, response) {
-  response.status(200).render('pages/searches/new');
-}
-
 function Memes(data) {
   this.name = data.name;
   this.template_id = data.id;
@@ -125,6 +136,7 @@ function Memes(data) {
   this.text0 = data.text0;
   this.text1 = data.text1;
   this.font = data.arial;
+  this.box_count = data.box_count
 }
 
 function deleteMeme(request, response) {

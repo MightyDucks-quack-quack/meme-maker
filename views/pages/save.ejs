@@ -9,11 +9,7 @@
         <% memes.forEach (data => { %>
         <section class="container">
             <li>
-                <img src='<%= data.url%>' alt="Avatar" class="image">
-                <ul class="links">
-                    <li class="sharethis-inline-share-buttons"><%= data.url%></li>
-                </ul>
-
+                <img value="og:image" src='<%= data.url%>' alt="Avatar" class="image">
             </li>
             <form method="post" action="/delete/<%= data.id %>?_method=delete">
                 <button type="submit"> Delete </button>
