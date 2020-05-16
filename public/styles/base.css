@@ -2,11 +2,15 @@
     box-sizing: border-box;
     font-family: fantasy;
 }
- head{
-    height:40px;
-    width:100px;
-    margin:auto;
+
+ header{
+    margin: auto;
     padding:auto;
+    height:50px;
+    width:100%;
+    text-align:center;
+    font-size: 3rem;
+    background-color: #a3b4a2;
 } 
  main{
     height:100%;
@@ -128,15 +132,7 @@ section{
     width:100%;
     text-align:center;
 }
-#header{
-    margin: auto;
-    padding:auto;
-    height:50px;
-    width:100%;
-    text-align:center;
-    font-size: 3rem;
-    background-color: #a3b4a2;
-}
+
 
 
 #aboutFlex{
