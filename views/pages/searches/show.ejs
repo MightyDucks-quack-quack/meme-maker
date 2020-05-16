@@ -33,24 +33,11 @@
             <%= data.template_id%>
             <div class="text"> <%= data.template_id %> <%= data.name %><br></div>
           </div>
-<<<<<<< HEAD
         </div>
         <button class='open' name="<%= data.template_id %>" type="submit">Caption This Meme</button>
       </li>
     </section>
     <form id="expand" name="<%= data.template_id %>" method="post" action="/caption">
-=======
-
-          <button class='button' type="submit">Caption This Meme</button>
-
-        </li>
-      </section>
-
-    </form>
-
-    <form class="<%= data.template_id%>" method="post" action="/caption">
-
->>>>>>> 83b9e037b0e9a3037b362272e9dd37917962b24d
       <input id="input" type="hidden" name="id" value="<%= data.template_id %>"><br>
 
       <input id="input" type="text" name="text0" placeholder="top text caption meme"><br>
