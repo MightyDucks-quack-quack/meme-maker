@@ -3,6 +3,27 @@
     font-family: fantasy;
 }
 
+.fb-share-button{
+    height: 2.5em;
+    width: 3em;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.linkedIn{
+    height: 2em;
+    width: 3em;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.links {
+    display: flex;
+    flex-flow: row;
+}
+
  header{
     margin: auto;
     padding:auto;
@@ -35,7 +56,7 @@
 }
 .container{
     padding:auto;
-    margin:auto;
+    margin-top: 50px;
 
 }
 a{
@@ -48,6 +69,9 @@ img{
     width:60%;
 }
 li{
+    display: flex;
+    align-items: center ;
+    flex-flow: column;
     width: 500px;
     text-align: center;
     margin: auto;
@@ -79,8 +103,6 @@ section{
 #captionO{
     display:none;
 }
-
-
 
 #input{
     width:300px;

@@ -7,13 +7,30 @@
     <%- include('../pages/partials/header') %>
     <main>
         <% memes.forEach (data => { %>
-        <section>
+        <section class="container">
             <li>
-                <img src='<%= data.url%>' alt="Avatar" class="image"><br>
+                <img src='<%= data.url%>' alt="Avatar" class="image">
+                <ul class="links">
+                    <li class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/"
+                        data-layout="button" data-size="large">
+                        <a target="_blank"
+                            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                            class="fb-xfbml-parse-ignore">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTH8-xlC9AsX-VkkrsJVIS9NoUGrBKkmb2y8fyFSREm5M4620PS&usqp=CAU"
+                                alt="">
+                        </a>
+                    </li>
+                    <li class="linkedIn">
+                        <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+                        <script type="IN/Share" data-url="https://www.linkedin.com"></script>
+                    </li>
+                </ul>
+
             </li>
             <form method="post" action="/delete/<%= data.id %>?_method=delete">
                 <button type="submit"> Delete </button>
             </form>
+
         </section>
 
         <% }); %>
