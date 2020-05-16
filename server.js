@@ -22,7 +22,6 @@ app.use(express.static('./public'));
 
 
 app.get('/', handleIndexPage);
-app.get('/new', searchMemes);
 app.get('/searches', resultsFromAPI);
 app.post('/save', saveThisMeme);
 app.post('/caption', captionMeme);
@@ -31,10 +30,6 @@ app.get('/fav', handleFav);
 app.delete('/delete/:id', deleteMeme);
 
 app.get('/aboutus', aboutUs);
-
-// app.get('/onememe/:id', handleOneMeme);
-
-
 
 function handleFav(request, response) {
   const SQL = `SELECT * FROM memes`;
@@ -67,7 +62,7 @@ function resultsFromAPI(request, response) {
       response.status(200).render('pages/searches/show', { meme: selection });
     });
 }
-// v.name.includes(input) ? v : null
+
 function captionMeme(request, response) {
   // console.log('Meme to be added: ', request.body);
   // let url = 'https://api.imgflip.com/caption_image';
@@ -119,12 +114,9 @@ function saveThisMeme(request, response) {
     });
 }
 
-
 function searchMemes(request, response) {
   response.status(200).render('pages/searches/new');
 }
-
-
 
 function Memes(data) {
   this.name = data.name;
@@ -152,7 +144,7 @@ app.get('/badthing', (request, response) => {
 
 // 404 Handler
 app.use('*', (request, response) => {
-  response.status(404).send(`Can't Find ${request.path}`);
+  response.status(404).render('pages/error');
 });
 
 // Error Handler
