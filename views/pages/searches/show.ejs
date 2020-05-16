@@ -30,14 +30,14 @@
       <form id="expand" name="<%= data.template_id %>" method="post" action="/caption">
         <input id="input" type="hidden" name="id" value="<%= data.template_id %>">
 
-        <input id="input" type="text" name="text0" placeholder="top text caption meme">
-        <input id="input" type="text" name="text1" placeholder="bottom text caption meme">
+        <input id="input" type="text" name="text0" placeholder="text caption meme">
+        <input id="input" type="text" name="text1" placeholder="text caption meme">
         <% if( data.box_count > 2) { %>
-        <input id="input" type="text" name="text2">
+        <input id="input" type="text" name="text2" placeholder="text caption meme">
         <% } if(data.box_count > 3){ %>
-        <input id="input" type="text" name="text3">
+        <input id="input" type="text" name="text3" placeholder="text caption meme">
         <% } if(data.box_count > 4){%>
-        <input id="input" type="text" name="text4">
+        <input id="input" type="text" name="text4" placeholder="text caption meme">
         <% } %>
         <button id="postCap" type="submit">Post Caption</button>
       </form>

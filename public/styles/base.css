@@ -3,6 +3,9 @@
     font-family: fantasy;
 }
 
+
+
+
 .links {
     display: flex;
     flex-flow: row;
@@ -78,6 +81,14 @@ section{
     background-color: black;
     color: white;
 }
+
+#butt1:hover{
+    transition: 300ms;
+    background-color: burlywood;
+    transform: scale(1.1, 1.1);
+}
+
+
 #caption{
     width:300px;
     height:50px;
@@ -98,7 +109,39 @@ section{
     margin: auto;
     display: flex;
     margin-top: 5%;
+    animation-name: colors;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    transition: ease-in;
 }
+
+@keyframes colors{
+    0%{
+        background-color: rgb(125, 185, 125);
+    }
+    50%{
+        background-color: rgba(124, 65, 180, 0.65);
+    }
+    100%{
+        background-color: rgb(125, 185, 125);
+    }
+}
+
+.open{
+    width: 10rem;
+    height: 3em;
+
+}
+
+.open:hover{
+    transform: rotate(360deg);
+    transition: 400ms;
+    text-transform: uppercase;
+    transition-duration: infinite;
+
+}
+
+
 #expand{
     display: none;
 }
