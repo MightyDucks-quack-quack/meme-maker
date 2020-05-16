@@ -22,7 +22,7 @@ app.use(express.static('./public'));
 
 
 app.get('/', handleIndexPage);
-app.get('/new', searchMemes);
+// app.get('/new', searchMemes);
 app.get('/searches', resultsFromAPI);
 app.post('/save', saveThisMeme);
 app.post('/caption', captionMeme);
