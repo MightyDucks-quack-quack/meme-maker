@@ -2,11 +2,26 @@
     box-sizing: border-box;
     font-family: fantasy;
 }
- head{
-    height:40px;
-    width:100px;
-    margin:auto;
+
+nav{
+    margin-bottom: 10em;
+    position: relative;
+}
+
+
+.links {
+    display: flex;
+    flex-flow: row;
+}
+
+ header{
+    margin-bottom: 1em;
     padding:auto;
+    height:50px;
+    width:100%;
+    text-align:center;
+    font-size: 3rem;
+    background-color: #a3b4a2;
 } 
  main{
     height:100%;
@@ -31,11 +46,12 @@
 }
 .container{
     padding:auto;
-    margin:auto;
+    margin-top: 50px;
 
 }
 a{
     color:#38686a;
+    padding:5px;
 }
 img{
 
@@ -43,6 +59,9 @@ img{
     width:60%;
 }
 li{
+    display: flex;
+    align-items: center ;
+    flex-flow: column;
     width: 500px;
     text-align: center;
     margin: auto;
@@ -66,6 +85,22 @@ section{
     color: white;
 }
 
+#butt1:hover{
+    transition: 300ms;
+    background-color: burlywood;
+    transform: scale(1.1, 1.1);
+}
+
+
+#caption{
+    width:300px;
+    height:50px;
+    background-color: black;
+    color: white;
+}
+#captionO{
+    display:none;
+}
 
 #input{
     width:300px;
@@ -77,6 +112,44 @@ section{
     margin: auto;
     display: flex;
     margin-top: 5%;
+    animation-name: colors;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    transition: ease-in;
+}
+
+@keyframes colors{
+    0%{
+        background-color: rgb(125, 185, 125);
+    }
+    50%{
+        background-color: rgba(124, 65, 180, 0.65);
+    }
+    100%{
+        background-color: rgb(125, 185, 125);
+    }
+}
+
+.open{
+    width: 10rem;
+    height: 3em;
+
+}
+
+.open:hover{
+    transform: rotate(360deg);
+    transition: 400ms;
+    text-transform: uppercase;
+    transition-duration: infinite;
+
+}
+
+
+#expand{
+    display: none;
+}
+.postFormS{
+    display:inline;
 }
 
 #butt2{
@@ -88,6 +161,20 @@ section{
     display: flex;
 
 }
+.aboutUs1{
+    background-color: #a3b4a2;
+    text-align: center;
+    font-size: large;
+    height:150px;
+    padding-top:3rem;
+}
+
+#aboutFlex{
+    background-color: #38686a;
+    padding:10px;
+    margin-top:48px;
+}    
+
 
 #footer{
     margin: auto;
@@ -97,15 +184,39 @@ section{
     width:100%;
     text-align:center;
 }
-#header{
-    margin: auto;
-    padding:auto;
-    height:50px;
-    width:100%;
-    text-align:center;
-    font-size: 3rem;
-    background-color: #a3b4a2;
+
+
+
+#aboutFlex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
+
+#aboutFlex1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+}
+
+.aboutUs{
+    display: flex;
+    flex: 1;
+    max-width: 20%;
+    padding: 2rem;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.aboutUs1{
+    padding: 2rem;
+    margin: auto;
+    width: 20%;
+}
+
+
+
 
 /* Container needed to position the overlay. Adjust the width as needed */
 /*   */

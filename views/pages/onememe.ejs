@@ -1,35 +1,23 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <link rel="stylesheet" href="/styles/reset.css">
-  <link rel="stylesheet" href="/styles/style.css">
-  <title>Meme Thingy</title>
-</head>
+<%- include('../pages/partials/head') %>
 
 <body>
 
   <%- include('../pages/partials/header') %>
 
-
-
   <main>
 
     <form id="saveForm" method="post" action="/save">
-
       <li>
-
         <img src='<%= data %>'>
-
-
       </li>
       <input type="hidden" name="data" value="<%=data%>">
       <button id="butt" type="submit">Save This Meme</button>
     </form>
 
-
   </main>
-
 
   <%- include('../pages/partials/footer') %>
 
