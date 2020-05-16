@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-  <link rel="stylesheet" href="/styles/reset.css">
-  <link rel="stylesheet" href="/styles/style.css">
-  <title>Document</title>
-</head>
+<%- include('../partials/head') %>
 
 <body>
   <%- include('../partials/header') %>
@@ -36,14 +29,14 @@
         </div>
         <button class='open' name="<%= data.template_id %>" type="submit">Caption This Meme</button>
       </li>
-    </section>
-    <form id="expand" name="<%= data.template_id %>" method="post" action="/caption">
-      <input id="input" type="hidden" name="id" value="<%= data.template_id %>"><br>
+      <form id="expand" name="<%= data.template_id %>" method="post" action="/caption">
+        <input id="input" type="hidden" name="id" value="<%= data.template_id %>">
 
-      <input id="input" type="text" name="text0" placeholder="top text caption meme"><br>
-      <input id="input" type="text" name="text1" placeholder="bottom text caption meme"><br>
-      <button id="postCap" type="submit">Post Caption</button>
-    </form>
+        <input id="input" type="text" name="text0" placeholder="top text caption meme">
+        <input id="input" type="text" name="text1" placeholder="bottom text caption meme">
+        <button id="postCap" type="submit">Post Caption</button>
+      </form>
+    </section>
     </div>
 
 
