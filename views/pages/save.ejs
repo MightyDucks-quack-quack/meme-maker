@@ -6,18 +6,20 @@
 <body>
     <%- include('../pages/partials/header') %>
     <main>
-        <% memes.forEach (data => { %>
-        <section class="container">
-            <li>
-                <img value="og:image" src='<%= data.url%>' alt="Avatar" class="image">
-            </li>
-            <form method="post" action="/delete/<%= data.id %>?_method=delete">
-                <button type="submit"> Delete </button>
-            </form>
 
-        </section>
+        <div class="newMain">
+            <% memes.forEach (data => { %>
+            <section class="container">
+                <li>
+                    <img value="og:image" src='<%= data.url%>' alt="Avatar" class="image">
+                </li>
+                <form method="post" action="/delete/<%= data.id %>?_method=delete">
+                    <button type="submit"> Delete </button>
+                </form>
+            </section>
+            <% }); %>
+        </div>
 
-        <% }); %>
 
     </main>
 
