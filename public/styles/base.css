@@ -71,6 +71,27 @@ nav{
     align-items: center;
 }
 
+.errorMain{
+    display: flex;
+    flex-flow: column;
+
+}
+
+.errorMain img{
+    align-self: center;
+    height: 20rem;
+    width: 20rem;
+    margin: 1em;
+}
+
+.errorMain p{
+    display: flex;
+    color: black;
+    width: 30rem;
+    text-align: left;
+}
+
+
  body{
     width:100%;
     height:auto; 
@@ -223,8 +244,6 @@ section{
     text-align:center;
 }
 
-
-
 #aboutFlex{
     display: flex;
     flex-direction: row;
@@ -254,45 +273,46 @@ section{
 }
 
 
+@media (max-width: 470px){
+    #aboutFlex{
+        display: grid;
+        grid-template-columns: 400px 400px 400px 400px 400px;
+        grid-template-rows: 400px;
+        padding: 0;
+        width: 100%;
+        background-color: #cdc6ae;
+        
+    }
 
-
-/* Container needed to position the overlay. Adjust the width as needed */
-/*   */
-  
-  /* Make the image to responsive */
-  /* .image {
-    width: 60%;
-    height: 80%;
-    padding: auto;
-    margin: auto;
-  }
-   */
-  /* The overlay effect (full height and width) - lays on top of the container and over the image */
-  /* .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #008CBA;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    transform: scale(0);
-    transition: .3s ease;
-  } */
-  
-  /* When you mouse over the container, the overlay text will "zoom" in display */
-  /* .container:hover .overlay {
-    transform: scale(1);
-  } */
-  
-  /* Some text inside the overlay, which is positioned in the middle vertically and horizontally */
-  /* .text {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  } */
+   
+    
+    #aboutFlex1{
+        display: grid;
+        grid-template-columns: 400px 400px 400px 400px 400px;
+        grid-template-rows: 400px;
+        padding: 0;
+    }
+    
+    .aboutUs{
+        display: flex;
+        flex: 1;
+        max-width: 100%;
+        padding: 00px;
+        margin: auto;
+        margin-top: 2rem;
+        border: 100px solid #38686a;
+        height: 100%;
+        width: 100%;
+      
+    }
+    
+    .aboutUs1{
+        
+        flex: 1;
+        max-width: 100%;
+        width: 90%;
+        padding: 0;
+        margin: auto;
+        margin-top: 2rem;
+    }
+}
