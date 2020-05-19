@@ -3,129 +3,54 @@
     font-family: fantasy;
 }
 
-nav{
-    margin-bottom: .5em;
-    display: flex;
-    justify-content: space-around;
-    
-}
-
-@media (max-width: 470px) {
-    nav{
-      
-        display: flex;
-        flex-flow: column;
-    }
-
-    main{
-        display: flex;
-    }
-    form{
-        width: auto;
-        
-    }
-
-    li{
-        width: auto;
-    }
-}
-
-
-.links {
-    display: flex;
-    flex-flow: row;
-}
-
  header{
-
     padding:auto;
-    height:100%;
-    width:100%;
     text-align:center;
     font-size: 3rem;
     background-color: #a3b4a2;
     
 } 
  main{
-    height:100%;
-    width: auto;
-    align-content: center;
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
     background-image: url(https://img5.goodfon.com/wallpaper/nbig/1/ce/wallpaper-background-4k-ultra-hd-blur-bokeh-rubber-duck-duck.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
- 
 } 
 
-.newMain{
-    align-content: center;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.errorMain{
-    display: flex;
-    flex-flow: column;
-
-}
-
 .errorMain img{
-    align-self: center;
-    height: 20rem;
-    width: 20rem;
     margin: 1em;
 }
 
 .errorMain p{
-    display: flex;
     color: black;
-    width: 30rem;
     text-align: left;
 }
 
 
  body{
-    width:100%;
-    height:auto; 
-    justify-content: center;
     background-color: #cdc6ae;
 }
+
 .container{
     padding:auto;
     margin-top: 50px;
-
 }
+
 a{
     color:#38686a;
     padding:5px;
 }
-img{
 
-    height:80%;
-    width:60%;
-}
+
 li{
-    display: flex;
-    align-items: center ;
-    flex-flow: column;
-    width: 25rem;
-    height: auto;
     text-align: center;
     margin: auto;
     padding:auto;
     color:white;
     background-color: black;
 }
+
 section{
-    justify-content: center;
     text-align: center;
     padding: auto;
     padding-top: 20px;
@@ -134,8 +59,6 @@ section{
 
 
 #butt1{
-    width:300px;
-    height:50px;
     background-color: black;
     color: white;
 }
@@ -148,24 +71,19 @@ section{
 
 
 #caption{
-    width:300px;
-    height:50px;
     background-color: black;
     color: white;
 }
-#captionO{
-    display:none;
-}
+
+
+
 
 #input{
-    width:300px;
-    height:60px;
     font-size: large;
     text-align: center;
     background-color: #a3b4a2;
     color:black;
     margin: auto;
-    display: flex;
     margin-top: 5%;
     animation-name: colors;
     animation-iteration-count: infinite;
@@ -185,46 +103,32 @@ section{
     }
 }
 
-.open{
-    width: 10rem;
-    height: 3em;
 
-}
 
 .open:hover{
     transform: rotate(360deg);
     transition: 400ms;
     text-transform: uppercase;
     transition-duration: infinite;
-
 }
+
 
 #saveForm{
     overflow: auto;
-    width: 100%;
 }
 
-#expand{
-    display: none;
-}
-.postFormS{
-    display:inline;
-}
+
 
 #butt2{
-    width:300px;
-    height:50px;
     background-color: black;
     color: white;
     margin: auto;
-    display: flex;
-
 }
+
 .aboutUs1{
     background-color: #a3b4a2;
     text-align: center;
     font-size: large;
-    height:150px;
     padding-top:3rem;
 }
 
@@ -239,28 +143,12 @@ section{
     margin: auto;
     padding:auto;
     padding-top:120px;
-    height:50px;
-    width:100%;
     text-align:center;
 }
 
-#aboutFlex{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
 
-#aboutFlex1{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    
-}
 
 .aboutUs{
-    display: flex;
-    flex: 1;
-    max-width: 20%;
     padding: 2rem;
     margin: auto;
     margin-top: 2rem;
@@ -269,50 +157,4 @@ section{
 .aboutUs1{
     padding: 2rem;
     margin: auto;
-    width: 20%;
-}
-
-
-@media (max-width: 470px){
-    #aboutFlex{
-        display: grid;
-        grid-template-columns: 400px 400px 400px 400px 400px;
-        grid-template-rows: 400px;
-        padding: 0;
-        width: 100%;
-        background-color: #cdc6ae;
-        
-    }
-
-   
-    
-    #aboutFlex1{
-        display: grid;
-        grid-template-columns: 400px 400px 400px 400px 400px;
-        grid-template-rows: 400px;
-        padding: 0;
-    }
-    
-    .aboutUs{
-        display: flex;
-        flex: 1;
-        max-width: 100%;
-        padding: 00px;
-        margin: auto;
-        margin-top: 2rem;
-        border: 100px solid #38686a;
-        height: 100%;
-        width: 100%;
-      
-    }
-    
-    .aboutUs1{
-        
-        flex: 1;
-        max-width: 100%;
-        width: 90%;
-        padding: 0;
-        margin: auto;
-        margin-top: 2rem;
-    }
 }
