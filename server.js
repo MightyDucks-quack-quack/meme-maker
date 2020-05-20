@@ -31,6 +31,43 @@ app.delete('/delete/:id', deleteMeme);
 
 app.get('/aboutus', aboutUs);
 
+app.get('/gif', handleGif)
+
+// https://api.giphy.com/v1/gifs/search?api_key=f6iwV5SctL1BoO472MJhB7N5dTuwIQnp&q=&limit=25&offset=0&rating=G&lang=en
+
+function handleGif(req, res) {
+  let url = `https://api.giphy.com/v1/gifs/search`
+
+  let queryStringParams = {
+    api_key: process.env.GIPHY_KEY,
+    q: req.query.gifSearch,
+    limit: 9,
+  }
+
+  console.log(queryStringParams)
+  superagent.get(url)
+    .query(queryStringParams)
+    .then(results => {
+      console.log(results.body.data.original)
+      let selection = results.body.data.map(memes => new Gifs(memes));
+      res.status(200).render('pages/searches/gif', { meme: selection });
+    })
+
+
+}
+
+function Gifs(data) {
+  this.name = data.name;
+  this.template_id = data.id;
+  this.url = data.images.original.url;
+  this.text0 = data.text0;
+  this.text1 = data.text1;
+  this.font = data.arial;
+  this.box_count = data.box_count
+}
+
+
+
 function handleFav(request, response) {
   const SQL = `SELECT * FROM memes`;
 
@@ -103,6 +140,7 @@ function captionMeme(request, response) {
 }
 
 function saveThisMeme(request, response) {
+
   let SQL = `
     INSERT INTO memes (name, url, text0, text1)
     VALUES($1, $2, $3, $4)

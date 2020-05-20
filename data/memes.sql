@@ -1,9 +1,10 @@
 DROP TABLE IF EXISTS memes;
 
-CREATE TABLE memes (
+CREATE TABLE memes
+(
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  url VARCHAR(100),
+  url VARCHAR(255),
   text0 VARCHAR(300),
   text1 VARCHAR(300)
 );
