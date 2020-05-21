@@ -2,6 +2,12 @@
     box-sizing: border-box;
     font-family: fantasy;
 }
+html{
+    height:100%;
+}
+body{
+    height:100%;
+}
 
  header{
     padding:auto;

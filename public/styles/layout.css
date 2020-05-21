@@ -81,7 +81,7 @@ header{
 
 main{
     height:100%;
-    width: auto;
+    width: 100%;
     align-content: center;
     display:flex;
     flex-direction: column;
@@ -211,4 +211,7 @@ section{
 
 .aboutUs1{
     width: 20%;
+}
+#imgId{
+    height:900px;
 }
