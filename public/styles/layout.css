@@ -22,17 +22,9 @@
 
 
 @media (max-width: 480px){
-    #aboutFlex{
-        display: grid;
-        grid-template-columns: 400px 400px 400px 400px 400px;
-        grid-template-rows: 400px;
-        padding: 0;
-        width: 100%;
-        background-color: #cdc6ae;
-        
-    }
 
-   
+
+
     
     #aboutFlex1{
         display: grid;
@@ -40,27 +32,27 @@
         grid-template-rows: 400px;
         padding: 0;
     }
+
     
     .aboutUs{
         display: flex;
-        flex: 1;
         max-width: 100%;
         padding: 00px;
         margin: auto;
         margin-top: 2rem;
-        border: 100px solid #38686a;
         height: 100%;
         width: 100%;
       
     }
     
-    .aboutUs1, a{
-        
-        flex: 1;
+  
+    
+    .aboutUs1{
+        display: block;
         max-width: 100%;
         width: 90%;
         padding: 0;
-        margin: auto;
+        margin: 1rem;
         margin-top: 2rem;
     }
 
