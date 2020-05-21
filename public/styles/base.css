@@ -3,74 +3,54 @@
     font-family: fantasy;
 }
 
-nav{
-    margin-bottom: 10em;
-    position: relative;
-}
-
-
-.links {
-    display: flex;
-    flex-flow: row;
-}
-
  header{
-    margin-bottom: 1em;
     padding:auto;
-    height:50px;
-    width:100%;
     text-align:center;
     font-size: 3rem;
     background-color: #a3b4a2;
+    
 } 
  main{
-    height:100%;
-    width:100%;
-    align-content: center;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
     background-image: url(https://img5.goodfon.com/wallpaper/nbig/1/ce/wallpaper-background-4k-ultra-hd-blur-bokeh-rubber-duck-duck.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
- 
 } 
+
+.errorMain img{
+    margin: 1em;
+}
+
+.errorMain p{
+    color: black;
+    text-align: left;
+}
+
+
  body{
-    width:100%;
-    height:90%; 
-    justify-content: center;
     background-color: #cdc6ae;
 }
+
 .container{
     padding:auto;
     margin-top: 50px;
-
 }
+
 a{
     color:#38686a;
     padding:5px;
 }
-img{
 
-    height:80%;
-    width:60%;
-}
+
 li{
-    display: flex;
-    align-items: center ;
-    flex-flow: column;
-    width: 500px;
     text-align: center;
     margin: auto;
     padding:auto;
     color:white;
     background-color: black;
 }
+
 section{
-    justify-content: center;
     text-align: center;
     padding: auto;
     padding-top: 20px;
@@ -79,8 +59,6 @@ section{
 
 
 #butt1{
-    width:300px;
-    height:50px;
     background-color: black;
     color: white;
 }
@@ -93,24 +71,19 @@ section{
 
 
 #caption{
-    width:300px;
-    height:50px;
     background-color: black;
     color: white;
 }
-#captionO{
-    display:none;
-}
+
+
+
 
 #input{
-    width:300px;
-    height:60px;
     font-size: large;
     text-align: center;
     background-color: #a3b4a2;
     color:black;
     margin: auto;
-    display: flex;
     margin-top: 5%;
     animation-name: colors;
     animation-iteration-count: infinite;
@@ -120,52 +93,42 @@ section{
 
 @keyframes colors{
     0%{
-        background-color: rgb(125, 185, 125);
+        background-color: rgb(164,180,162);
     }
     50%{
-        background-color: rgba(124, 65, 180, 0.65);
+        background-color: rgba(167, 145, 104, 0.685);
     }
     100%{
-        background-color: rgb(125, 185, 125);
+        background-color: rgb(164,180,162);
     }
 }
 
-.open{
-    width: 10rem;
-    height: 3em;
 
-}
 
 .open:hover{
     transform: rotate(360deg);
     transition: 400ms;
     text-transform: uppercase;
     transition-duration: infinite;
-
 }
 
 
-#expand{
-    display: none;
+#saveForm{
+    overflow: auto;
 }
-.postFormS{
-    display:inline;
-}
+
+
 
 #butt2{
-    width:300px;
-    height:50px;
     background-color: black;
     color: white;
     margin: auto;
-    display: flex;
-
 }
+
 .aboutUs1{
     background-color: #a3b4a2;
     text-align: center;
     font-size: large;
-    height:150px;
     padding-top:3rem;
 }
 
@@ -180,30 +143,12 @@ section{
     margin: auto;
     padding:auto;
     padding-top:120px;
-    height:50px;
-    width:100%;
     text-align:center;
 }
 
 
 
-#aboutFlex{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-#aboutFlex1{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    
-}
-
 .aboutUs{
-    display: flex;
-    flex: 1;
-    max-width: 20%;
     padding: 2rem;
     margin: auto;
     margin-top: 2rem;
@@ -212,49 +157,4 @@ section{
 .aboutUs1{
     padding: 2rem;
     margin: auto;
-    width: 20%;
 }
-
-
-
-
-/* Container needed to position the overlay. Adjust the width as needed */
-/*   */
-  
-  /* Make the image to responsive */
-  /* .image {
-    width: 60%;
-    height: 80%;
-    padding: auto;
-    margin: auto;
-  }
-   */
-  /* The overlay effect (full height and width) - lays on top of the container and over the image */
-  /* .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #008CBA;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    transform: scale(0);
-    transition: .3s ease;
-  } */
-  
-  /* When you mouse over the container, the overlay text will "zoom" in display */
-  /* .container:hover .overlay {
-    transform: scale(1);
-  } */
-  
-  /* Some text inside the overlay, which is positioned in the middle vertically and horizontally */
-  /* .text {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  } */

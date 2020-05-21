@@ -64,8 +64,6 @@ function resultsFromAPI(request, response) {
 }
 
 function captionMeme(request, response) {
-  // console.log('Meme to be added: ', request.body);
-  // let url = 'https://api.imgflip.com/caption_image';
 
   const queryStringParams = {
     username: process.env.IMGFLIP_API_USERNAME,
@@ -91,8 +89,6 @@ function captionMeme(request, response) {
     format: 'json',
     limit: 1,
   };
-  console.log(queryStringParams)
-
 
   superagent.post('https://api.imgflip.com/caption_image')
     .type('form')
@@ -107,7 +103,6 @@ function captionMeme(request, response) {
 }
 
 function saveThisMeme(request, response) {
-  // console.log('Book to be added: ', request.body);
   let SQL = `
     INSERT INTO memes (name, url, text0, text1)
     VALUES($1, $2, $3, $4)
