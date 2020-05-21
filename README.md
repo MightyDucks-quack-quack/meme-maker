@@ -64,9 +64,9 @@ This app will provide laughs, which are desperately needed in a time like today.
 [Domain Modeling]
 [SQL Database]
 
-[Wireframe]: Wireframe.png
-[Domain Modeling]:
-[SQL Database]:
+[Wireframe]: https://docs.google.com/document/d/1B8ongM5RS-E_B-uvp4BRmj2r4PRX26olWeafOC-nhJ4/edit
+[Domain Modeling]: https://docs.google.com/document/d/1B8ongM5RS-E_B-uvp4BRmj2r4PRX26olWeafOC-nhJ4/edit
+[SQL Database]: https://docs.google.com/document/d/1B8ongM5RS-E_B-uvp4BRmj2r4PRX26olWeafOC-nhJ4/edit
 
 ## Resources
 Meme API: https://api.imgflip.com/
