@@ -57,6 +57,7 @@ function resultsFromAPI(request, response) {
       let input = request.query.name
       let meme = results.body.data.memes
       let r = new RegExp(input, 'ig')
+      r === false ? response.status(404).render('pages/error') : false;
       let filt = meme.filter(v => r.test(v.name))
       let selection = filt.map(memes => new Memes(memes));
       response.status(200).render('pages/searches/show', { meme: selection });
@@ -98,6 +99,7 @@ function captionMeme(request, response) {
       response.status(200).render('pages/onememe', { data });
     })
     .catch(error => {
+      filt === null ? response.status(404).render('pages/error') : false;
       console.error(error.message);
     });
 }

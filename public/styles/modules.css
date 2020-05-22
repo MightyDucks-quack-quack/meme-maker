@@ -7,10 +7,11 @@
     }
     
 #input1{
-    width:300px;
+    width:300%;
     height:50px;
     text-align:center;
     font-size: large;
+    margin-left:-100%
 }
 #searchFormShow{
         margin:auto;
@@ -27,3 +28,35 @@
 }
     
 
+@media (max-width: 480px){
+    #searchForm{
+        margin:100px;
+        padding:auto;
+        width:300px;
+        height:auto;
+        margin-top: px;
+        
+        }
+        
+    #input1{
+        width:200%;
+        height:50px;
+        text-align:center;
+        font-size: xx-large;
+        margin-left: -140px ;
+        
+    }
+    #searchFormShow{
+            margin:auto;
+            padding:auto;
+            padding-top:100px;
+            padding-bottom: 150px;;
+            width:300px;
+            height:50px;
+        }
+    #addCap{
+        padding:auto;
+        margin:auto;
+    
+    }
+}
